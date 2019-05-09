@@ -1,0 +1,77 @@
+// 基础按钮
+.button() {
+  outline:none;
+  border:none;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  width:100%;
+  overflow: hidden;
+  padding:0;
+  margin: 0;
+}
+
+// 矩形按钮 - normal
+.rectButton(@width: 100%, @bgColor: #6D8ADE, @fColor: #fff) {
+  .button;
+  background-color: @bgColor;
+  height: 50px !important;
+  line-height: 50px !important;
+  color: @fColor;
+  width: @width;
+  border-radius: 0;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+// 矩形按钮 - disabled
+.rectButtonDisabled(@bgColor: #AEBCE9, @fColor:#fff) {
+  background-color: @bgColor !important;
+  color: @fColor !important;
+
+  &:active{
+    opacity: 1;
+  }
+}
+
+// 弧度按钮 - normal
+.radiusButton(@width: 100%, @bgColor: #4F80F6, @fColor: #FFFFFF) {
+  .button;
+  height: 35px !important;
+  line-height: 35px !important;
+  background-color: @bgColor;
+  border-radius: 18px;
+  color: @fColor;
+  width: @width;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+// 弧度按钮 - disabled
+.radiusButtonDisabled(@bgColor: #AEBCE9, @fColor:#fff) {
+  background-color: @bgColor !important;
+  color: @fColor !important;
+
+  &:active{
+    opacity: 1;
+  }
+}
+
+.ghostButton(@width: 130px, @bRadius: 8px, @bColor: #4F80F6) {
+  .button;
+  height: 30px !important;
+  line-height: 29px !important;
+  width: @width;
+  border-radius: @bRadius;
+  font-size: 14px;
+  color: @bColor;
+  border: solid 1PX @bColor;
+  background-color: transparent;
+
+  &:active {
+    background-color: @bColor;
+    color: #fff;
+  }
+}
