@@ -5,7 +5,7 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes: [
     {
@@ -23,11 +23,11 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: '/demo1',
-      name: 'demo1',
+      path: "/demo1",
+      name: "demo1",
       component: () => {
-        return import(/* webpackChunkName: "demo" */ "./views/Demo1.vue")
+        return import(/* webpackChunkName: "demo" */ "./views/Demo1.vue");
       }
-    },
+    }
   ]
 });
