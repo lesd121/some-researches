@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/some-researches/dist/precache-manifest.cfaa643520ad4849fad3876b504e87bf.js"
+  "/some-researches/dist/precache-manifest.854b0e637c6752f0ef61e72941891b0f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "webrtc-vue-demo"});

@@ -7,14 +7,13 @@
 </template>
 
 <script>
-  import addapter from 'webrtc-adapter';
-import { setTimeout } from 'timers';
+import addapter from 'webrtc-adapter';
   export default {
     name: 'demo1',
     data() {
       return {
-        videoDom: 'a',
-        canvasDom: 'b',
+        videoDom: null,
+        canvasDom: null,
       }
     },
     methods: {
@@ -34,11 +33,15 @@ import { setTimeout } from 'timers';
       getPhoto() {
         this.canvasDom.width = this.videoDom.videoWidth;
         this.canvasDom.height = this.videoDom.videoHeight;
-        this.canvasDom.getContext('2d').drawImage(this.videoDom, 0, 0, this.canvasDom.width, this.canvasDom.height);
+        if (this.canvasDom && this.videoDom) {
+          this.canvasDom.getContext('2d').drawImage(this.videoDom, 0, 0, this.canvasDom.width, this.canvasDom.height);
+        }
       },
       handleSuccess(stream) {
         window.stream = stream;
-        video.srcObject = stream;
+        if (this.videoDom) {
+          this.videoDom.srcObject = stream;
+        }
       },
       handleError(error) {
         console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
