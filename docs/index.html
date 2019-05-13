@@ -8,16 +8,30 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" title="vue"> -->
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css" title="dark">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <div id="app">加载中...</div>
   <script>
+    var hostUrl = window.location.origin;
     window.$docsify = {
       name: 'some-researches',
       repo: 'https://github.com/lesd121/some-researches',
-      loadSidebar: true,
+      loadSidebar: 'sidebar.md',
       subMaxLevel: 2,
       auto2top: true,
+      markdown: {
+        baseUrl: '/some/',
+        renderer: {
+          link: function(href, title, text) {
+            var link = `<a href='${href}'>${text}</a>`;
+            if (title === 'custom') {
+              link = hostUrl.indexOf('localhost') >= 0 ? `<a href="http://localhost:8080/#/demo1">${text}</a>` : `<a href="${hostUrl}/some-researches/dist/index.html#/demo1">${text}</a>`;
+            }
+            return link;
+          }
+        }
+      },
       search: {
         noData: {
           '/': '没有结果!'

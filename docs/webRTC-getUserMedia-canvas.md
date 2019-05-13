@@ -1,3 +1,3 @@
 # Use getUserMedia with canvas
 
-* click [this](../dist/index.html#/demo1)
+* click [this](../dist/index.html#/demo1 "custom")

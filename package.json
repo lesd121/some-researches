@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "doc:dev": "docsify init ./docs"
+    "doc:dev": "concurrently \"docsify serve ./docs\" \"vue-cli-service serve\""
   },
   "dependencies": {
     "core-js": "^2.6.5",
